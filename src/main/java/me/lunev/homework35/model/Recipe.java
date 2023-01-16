@@ -1,8 +1,15 @@
 package me.lunev.homework35.model;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
+@NoArgsConstructor
+@Getter
+@ToString
 @EqualsAndHashCode
 public class Recipe {
 
@@ -12,9 +19,6 @@ public class Recipe {
     private List<String> cookingSteps;
     private static int number = 1;
 
-    public Recipe() {
-    }
-
     public Recipe(String name, int cookingTime, List<Ingredient> ingredients, List<String> cookingSteps) {
         setName(name);
         setCookingTime(cookingTime);
@@ -22,19 +26,11 @@ public class Recipe {
         this.cookingSteps = cookingSteps;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
-        if (StringUtils.isNullBlankOrEmpty(name)) {
+        if (StringUtils.isBlank(name)) {
             name = "Рецепт " + number++;
         }
         this.name = name;
-    }
-
-    public int getCookingTime() {
-        return cookingTime;
     }
 
     public void setCookingTime(int cookingTime) {
@@ -44,29 +40,11 @@ public class Recipe {
         this.cookingTime = cookingTime;
     }
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
     public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
-    public List<String> getCookingSteps() {
-        return cookingSteps;
-    }
-
     public void setCookingSteps(List<String> cookingSteps) {
         this.cookingSteps = cookingSteps;
-    }
-
-    @Override
-    public String toString() {
-        return "Recipe{" +
-                "name='" + name + '\'' +
-                ", cookingTime=" + cookingTime +
-                ", ingredients=" + ingredients +
-                ", cookingSteps=" + cookingSteps +
-                '}';
     }
 }
