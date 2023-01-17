@@ -134,6 +134,10 @@ public class IngredientController {
                     }
             ),
             @ApiResponse(
+                    responseCode = "400",
+                    description = "Некорректные параметры ингредиента"
+            ),
+            @ApiResponse(
                     responseCode = "404",
                     description = "Ингредиент не был найден"
             )

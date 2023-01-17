@@ -209,6 +209,10 @@ public class RecipeController {
                     }
             ),
             @ApiResponse(
+                    responseCode = "400",
+                    description = "Некорректные параметры рецепта"
+            ),
+            @ApiResponse(
                     responseCode = "404",
                     description = "Рецепт не был найден"
             )
